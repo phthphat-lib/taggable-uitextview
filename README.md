@@ -6,7 +6,7 @@ Written by [Phat](https://www.facebook.com/phthphat)
 
 ### Implement dataSource (require)
 
-```Swift
+```swift
 class MainVC: UIViewController {
     let tagTextView: TaggableTextView()
 
@@ -34,7 +34,7 @@ extension MainVC: TaggableDataSource {
 
 To configure cell, please edit the `TaggableTextView.swift`, it's abit inconvenience:
 
-```Swift
+```swift
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID)
         cell?.textLabel?.text = self.filteredData[indexPath.row].name
@@ -46,7 +46,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 ## Attention
 ### UITextViewDelegate
 If you want to use `delegate` of UITextView in `TaggableTextView`, please execute `TaggableTextView.textViewDidChange(_ textView: UITextView)` addition. If you don't, the taggable function will be not available
-```Swift
+```swift
 class MainVC {
     let tagTextView = TaggableTextView()
 
