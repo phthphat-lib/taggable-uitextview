@@ -15,8 +15,8 @@ struct User {
 
 class MainVC: UIViewController {
 
-    let tagTextView: TaggableTextView = {
-        let tv = TaggableTextView()
+    let tagTextView: AppTextView = {
+        let tv = AppTextView()
         return tv
     }()
     
@@ -39,6 +39,10 @@ class MainVC: UIViewController {
 }
 
 extension MainVC: TaggableDataSource {
+    func tagFunction(_ sender: Any, cell: UITableViewCell, setUpCellWith model: User) {
+        cell.textLabel?.text = model.name
+    }
+    
     func tagFunction(_ sender: Any, setAutoLayoutFor hoverView: UIView) {
         self.view.addSubview(hoverView)
         let constrains = [
@@ -53,10 +57,4 @@ extension MainVC: TaggableDataSource {
     func colorOfTaggedName(sender: Any) -> UIColor {
         return .purple
     }
-    
-    func tagFunction(_ sender: Any, registerCellFor tableView: UITableView) -> (AnyClass, String) {
-        return (UITableViewCell.self, "CellID")
-    }
-    
-    
 }

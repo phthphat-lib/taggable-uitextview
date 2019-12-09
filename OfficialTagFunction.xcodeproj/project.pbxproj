@@ -7,16 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0154CAA239CF724006778A5 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0154CA8239CF724006778A5 /* TestVC.swift */; };
+		A0154CAB239CF724006778A5 /* TestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0154CA9239CF724006778A5 /* TestVC.xib */; };
+		A0154CAD239D046F006778A5 /* AppTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0154CAC239D046F006778A5 /* AppTextView.swift */; };
 		A080070A239A4D7200A02477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0800709239A4D7200A02477 /* AppDelegate.swift */; };
 		A080070C239A4D7200A02477 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A080070B239A4D7200A02477 /* SceneDelegate.swift */; };
 		A0800713239A4D7300A02477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0800712239A4D7300A02477 /* Assets.xcassets */; };
 		A0800716239A4D7300A02477 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0800714239A4D7300A02477 /* LaunchScreen.storyboard */; };
 		A080071E239A4DDE00A02477 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A080071D239A4DDE00A02477 /* MainVC.swift */; };
-		A0800721239A514600A02477 /* TaggableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0800720239A514600A02477 /* TaggableTextView.swift */; };
+		A0800721239A514600A02477 /* BaseTaggableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0800720239A514600A02477 /* BaseTaggableTextView.swift */; };
 		A0800723239A519300A02477 /* Taggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0800722239A519300A02477 /* Taggable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A0154CA8239CF724006778A5 /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
+		A0154CA9239CF724006778A5 /* TestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestVC.xib; sourceTree = "<group>"; };
+		A0154CAC239D046F006778A5 /* AppTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextView.swift; sourceTree = "<group>"; };
 		A0800706239A4D7200A02477 /* OfficialTagFunction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OfficialTagFunction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0800709239A4D7200A02477 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A080070B239A4D7200A02477 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,7 +30,7 @@
 		A0800715239A4D7300A02477 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0800717239A4D7300A02477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A080071D239A4DDE00A02477 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
-		A0800720239A514600A02477 /* TaggableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggableTextView.swift; sourceTree = "<group>"; };
+		A0800720239A514600A02477 /* BaseTaggableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTaggableTextView.swift; sourceTree = "<group>"; };
 		A0800722239A519300A02477 /* Taggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taggable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,12 +64,15 @@
 		A0800708239A4D7200A02477 /* OfficialTagFunction */ = {
 			isa = PBXGroup;
 			children = (
+				A0154CAC239D046F006778A5 /* AppTextView.swift */,
 				A080071F239A512F00A02477 /* TagFunction */,
 				A0800709239A4D7200A02477 /* AppDelegate.swift */,
 				A080070B239A4D7200A02477 /* SceneDelegate.swift */,
 				A080071D239A4DDE00A02477 /* MainVC.swift */,
 				A0800712239A4D7300A02477 /* Assets.xcassets */,
 				A0800714239A4D7300A02477 /* LaunchScreen.storyboard */,
+				A0154CA8239CF724006778A5 /* TestVC.swift */,
+				A0154CA9239CF724006778A5 /* TestVC.xib */,
 				A0800717239A4D7300A02477 /* Info.plist */,
 			);
 			path = OfficialTagFunction;
@@ -72,7 +81,7 @@
 		A080071F239A512F00A02477 /* TagFunction */ = {
 			isa = PBXGroup;
 			children = (
-				A0800720239A514600A02477 /* TaggableTextView.swift */,
+				A0800720239A514600A02477 /* BaseTaggableTextView.swift */,
 				A0800722239A519300A02477 /* Taggable.swift */,
 			);
 			path = TagFunction;
@@ -138,6 +147,7 @@
 			files = (
 				A0800716239A4D7300A02477 /* LaunchScreen.storyboard in Resources */,
 				A0800713239A4D7300A02477 /* Assets.xcassets in Resources */,
+				A0154CAB239CF724006778A5 /* TestVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,11 +158,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0800721239A514600A02477 /* TaggableTextView.swift in Sources */,
+				A0800721239A514600A02477 /* BaseTaggableTextView.swift in Sources */,
 				A0800723239A519300A02477 /* Taggable.swift in Sources */,
 				A080070A239A4D7200A02477 /* AppDelegate.swift in Sources */,
 				A080071E239A4DDE00A02477 /* MainVC.swift in Sources */,
+				A0154CAA239CF724006778A5 /* TestVC.swift in Sources */,
 				A080070C239A4D7200A02477 /* SceneDelegate.swift in Sources */,
+				A0154CAD239D046F006778A5 /* AppTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

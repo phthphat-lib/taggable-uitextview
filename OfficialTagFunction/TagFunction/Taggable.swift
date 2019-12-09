@@ -2,9 +2,9 @@
 //  Tagable.swift
 //  OfficialTagFunction
 //
-//  Created by Lucas Pham on 12/6/19.
+//  Created by Phthphat on 12/6/19.
 //  Copyright © 2019 phthphat. All rights reserved.
-//
+//  About it: https://gitlab.com/phthphat-share/taggable-uitextview
 
 import Foundation
 import UIKit
@@ -20,10 +20,10 @@ protocol Taggable {
 extension Taggable {
     func canShowHover(text: String, pointerPosition: Int) -> Bool {
         let _text = text[0..<( pointerPosition + 1 )]
-        guard let lastChar = _text.last, _text.count > 1, _text.contains("@") else { return false }
+        guard let lastChar = _text.last, _text.count > 1, _text.contains(self.specialChar) else { return false }
         if lastChar == " " || lastChar == self.specialChar { return false }
         guard let lastSubStr = _text.split(separator: self.specialChar).last else { return false }
-        if isTextContainCommonChar(text: String(lastSubStr)) {
+        if isTextAcceptable(text: String(lastSubStr)) {
             return true
         }
         return false
@@ -43,10 +43,10 @@ extension Taggable {
     }
     
     func updateAttributeText(curText: String) -> NSAttributedString {
-        return self.convert(curText.findTagText(), string: curText)
+        return self.convert(curText.listTagText(), string: curText)
     }
     
-    func isTextContainCommonChar(text: String) -> Bool {
+    func isTextAcceptable(text: String) -> Bool {
         var result = true
         text.forEach { (char) in
             var isCommon = (char >= "a" && char <= "y") || (char >= "A" && char <= "Y")
@@ -76,11 +76,10 @@ extension Taggable {
 protocol TaggableDataSource: class {
     func tagFunction(_ sender: Any, setAutoLayoutFor hoverView: UIView)
     func colorOfTaggedName(sender: Any) -> UIColor
-    func tagFunction(_ sender: Any, registerCellFor tableView: UITableView) -> (AnyClass, String)
 }
 
 protocol TaggableDelegate: class {
-    func didChooseUser(user: User)
+    func didChoose(indexPath: IndexPath)
 }
 
 
@@ -103,9 +102,8 @@ extension String {
         return String(self[start ..< end])
     }
 }
-
 extension String {
-    func findTagText(specialChar: Character = "@") -> [String] {
+    func listTagText(specialChar: Character = "@") -> [String] {
         var arr_hasStrings:[String] = []
         let regex = try? NSRegularExpression(pattern: "(\(specialChar)[a-zA-Z0-9_]+)", options: [])
         if let matches = regex?.matches(in: self, options:[], range:NSMakeRange(0, self.count)) {
